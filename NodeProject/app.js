@@ -21,6 +21,6 @@ app.use(shopRoutes);
 app.set('view engine','ejs');
 app.set('views','views');
 
-app.use(errorController.get404Page)
+app.use(errorController.get404Error)
 
 app.listen(3000);
