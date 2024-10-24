@@ -1,6 +1,6 @@
 // const products = [];
 const Product = require('../models/product');
-const products = require('../models/product')
+
 
 exports.getAddProduct = (req, res, next) => {
   
@@ -22,10 +22,12 @@ exports.getProducts = (req, res, next)=>{
     // console.log(adminData.products)
     // const products = adminData.products;
     // res.sendFile(path.join(__dirname,'../','views','shop.html'))
-    const products = Product.fetchAll()
-    res.render('shop.ejs',{
-        prods: products,
-        pageTitle: 'Shop'
-    });
+    Product.fetchAll((products)=>{
+        res.render('shop.ejs',{
+            prods: products,
+            pageTitle: 'Shop'
+        });
+    })
+    
     
 }
