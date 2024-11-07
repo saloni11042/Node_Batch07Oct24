@@ -21,23 +21,25 @@
 <header>
     <div class="row row2">
         <div class="col menu-list">
-            <a href="/">Shop</a>
+            <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
         </div>
         <div class="col menu-list">
-            <a href="/product-list">Products</a>
+            <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
         </div>
         <div class="col menu-list">
-            <a href="/admin/add-product">Add Product</a>
+            <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
         </div>
         
         <div class="col menu-list">
-            <a href="/admin/products">Admin Products</a>
+            <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
         </div>
         <div class="col menu-list">
-            <a href="/cart">Cart</a>
+            <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product
+            </a>
         </div>
         <div class="col menu-list">
-            <a href="/orders">Orders</a>
+            <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products
+            </a>
         </div>
         <div class="col menu-list">
             <a href="/checkout">Checkout</a>

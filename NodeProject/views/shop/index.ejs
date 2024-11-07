@@ -28,6 +28,9 @@
                     <div class="col">
                         <p class="card-price"><%= product.price%></p>
                     </div>
+                    <div class="col">
+                        <%- include('../includes/add-to-cart.ejs',{product:product}) %>
+                    </div>
                 </div>
                 
             </div>

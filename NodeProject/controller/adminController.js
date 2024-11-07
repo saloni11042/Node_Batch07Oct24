@@ -22,18 +22,18 @@ exports.getAddProduct = (req, res, next) => {
       res.render('admin/products', {
         prods: products,
         pageTitle: 'Admin Products',
-        path: '/admin/add-product',
+        path: '/admin/products',
       });
     });
   };
 
 
   exports.getEditProduct = (req, res, next) => {
-    Product.findProductById(products => {
-      res.render('admin/edit-product', {
-        prods: products,
-        pageTitle: 'Edit Product',
-        path: '/admin/edit-product',
-      });
-    });
+    // Product.findProductById(products => {
+    //   res.render('admin/edit-product', {
+    //     prods: products,
+    //     pageTitle: 'Edit Product',
+    //     path: '/admin/edit-product',
+    //   });
+    // });
   };

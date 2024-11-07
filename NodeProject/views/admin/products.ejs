@@ -3,48 +3,40 @@
 <body>
     <%- include('../includes/navigation.ejs') %>
    
-        <div class="best-seller">
+    <main>
         <% if (prods.length > 0) { %>
-            <div class="row best-seller-row">
+            <div class="grid">
                 <% for (let product of prods) { %>
-                 
-    <div class="col best-seller-col">
-        <div class="card">
-            <img src="/images/best_selling4.jpg.webp" alt="">
-            <div class="card-content">
-                <p class="card-book-name"><%= product.title%></p>
-                <p class="card-author-name">Author Name</p>
-                <div class="row card-content-row">
-                    <div class="col">
-                        <div class="card-star-rating">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-half"></i>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title">
+                                <%= product.title %>
+                            </h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
                         </div>
-                        <p class="card-review-para">(<span class="card-review">120</span> Reviews)</p>
-                    </div>
-                    <div class="col">
-                        <p class="card-price">$50</p>
-                    </div>
-                    <div class="col">
-                        <a href="/admin/edit-product" class="btn">Edit</a>
-                        <form action="/admin/delete-product" method="POST">
-                        <button class="btn" type="submit">Delete</button>
+                        <div class="card__content">
+                            <h2 class="product__price">$
+                                <%= product.price %>
+                            </h2>
+                            <p class="product__description">
+                                <%= product.description %>
+                            </p>
+                        </div>
+                        <div class="card__actions">
+                            <a href="/admin/edit-product" class="btn">Edit</a>
+                            <form action="/admin/delete-product" method="POST">
+                                <button class="btn" type="submit">Delete</button>
+                            </form>
 
-                        </form>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
+                        </div>
+                    </article>
                     <% } %>
             </div>
-            <% } else {%>
+            <% } else { %>
                 <h1>No Products Found!</h1>
-            <% } %>
-        </div>
+                <% } %>
+    </main>
     
     <%- include('../includes/end.ejs') %>
