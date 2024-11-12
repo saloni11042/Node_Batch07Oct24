@@ -13,7 +13,7 @@ exports.getAddProduct = (req, res, next) => {
     const imageUrl = req.body.imageUrl
     const description = req.body.description
     const price = req.body.price
-    const product = new Product(title,imageUrl,description,price);
+    const product = new Product(null,title,imageUrl,description,price);
     product.save();
     res.redirect('/');
   };
@@ -32,7 +32,7 @@ exports.getAddProduct = (req, res, next) => {
   exports.getEditProduct = (req, res, next) => {
     const editMode = req.query.edit
     if(!editMode){
-      res.redirect('/')
+      return res.redirect('/')
     }
     const prodId = req.params.productId;
       Product.findProductById(prodId,product=>{
@@ -48,3 +48,15 @@ exports.getAddProduct = (req, res, next) => {
       })
     
   };
+
+  exports.postEditProduct = (req, res, next) =>{
+    const updatedTitle = req.body.title
+    const updatedImageUrl = req.body.imageUrl
+    const updatedDescription = req.body.description
+    const updatedPrice = req.body.price
+    const id = req.body.productId
+    const updatedProduct = new Product(
+      id,updatedTitle,updatedImageUrl,updatedDescription,updatedPrice);
+    updatedProduct.save();
+    res.redirect('/');
+  }

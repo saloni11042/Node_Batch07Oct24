@@ -4,18 +4,21 @@
 <body>
     <%- include('../includes/navigation.ejs') %>
     <main>
-        <form class="product-form" method="POST" action="/admin/add-product">
+        <form class="product-form" method="POST" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>">
             <input name="title" type="text" placeholder="Enter book name" value="<% if(editing){%> <%= product.title%> <% } %>">
             <br>
             <br>
             <input name="imageUrl" type="text" placeholder="Enter Image Url" value="<% if(editing){%> <%= product.imageUrl%> <% } %>">
             <br>
             <br>
-            <input name="price" type="number" size="0.01" placeholder="Enter book's price" value="<% if(editing){%> <%= product.price%> <% } %>">
+            <input name="price" type="text" placeholder="Enter book's price" value="<% if(editing){%> <%= product.price%> <% } %>">
             <br>
             <br>
             <textarea name="description" id="" rows="5" placeholder="Enter book Description"><% if(editing){%> <%= product.description%> <% } %></textarea>
             <br><br>
+            <% if(editing){%>
+                <input type="hidden" name="productId" value="<%= product.id%>">
+            <%}%>
             <button type="submit"><% if(editing){%> Update Product <% } else{%>Add Product<% } %></button>
         </form>
     </main>
