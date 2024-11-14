@@ -1,5 +1,6 @@
 const path = require('path')
 const ejs = require(('ejs'))
+const db = require('./utils/database')
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -8,6 +9,14 @@ const app = express();
 
 const adminData = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
+
+// db.execute('SELECT * FROM products')
+// .then(result=>{
+//     console.log(result);
+// })
+// .catch(err=>{
+//     console.log(err)
+// })
 
 const errorController = require('./controller/errorController')
 
