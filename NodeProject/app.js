@@ -19,6 +19,7 @@ const shopRoutes = require('./routes/shop')
 // })
 
 const errorController = require('./controller/errorController')
+const mongoConnect = require('./utils/database')
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
